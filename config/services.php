@@ -41,5 +41,4 @@ return [
         'password' => env('INFOBIP_PASSWORD'),
         'sender' => env('SMS_SENDERNAME'),
     ],
-
 ];

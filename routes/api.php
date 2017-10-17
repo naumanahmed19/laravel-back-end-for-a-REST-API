@@ -13,4 +13,7 @@
 */
 
 Route::resource('apartments', 'ApiApartmentsController');
+
 Route::get('apartments/{param}/edit/{token}', 'ApiApartmentsController@edit');
+
+Route::delete('apartments/{param}/delete/{token}', 'ApiApartmentsController@destroy');

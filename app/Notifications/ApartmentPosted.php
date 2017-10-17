@@ -44,24 +44,10 @@ class ApartmentPosted extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                ->subject('New apartment Posted | '. $this->apartment->title)
-                ->greeting('Hello,')
-                ->line('Your new apartment has been saved and publish. Here are details.')
-                ->line('apartment ID: '.$this->apartment->id)
-                ->line('apartment Name: '. $this->apartment->title)
-                ->action('Edit Apartment',  route('apartments.edit', [
-                        'id' => $this->apartment->id,
-                        'token'=> $this->apartment->token
-                    ]
-                ))
-                ->line('Want to delete this apartment?')
-                ->action('Delete Apartment',  route('apartments.destroy', [
-                        'id' => $this->apartment->id,
-                        'token'=> $this->apartment->token
-                    ]
-                ))
-                ->line('Thank you.');
+
+        return (new MailMessage)->markdown(
+            'emails.apartment', ['apartment' => $this->apartment]
+        )->subject('New apartment Posted | ' . $this->apartment->title);
     }
 
     /**

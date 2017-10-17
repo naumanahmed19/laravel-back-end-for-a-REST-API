@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', '2Rent'),
-
+    'name' => env('APP_NAME', 'APARTMENTS'),
+    'frontendUrl' => env('FRONT_END_URL', 'http://localhost:4200/'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

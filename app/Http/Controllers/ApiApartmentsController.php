@@ -72,24 +72,39 @@ class ApiApartmentsController extends Controller
 
     public function update(Apartment $apartment, CreateapartmentRequest $request)
     {
-        $input = $request->except(['file']);
+        if ($apartment = Apartment::whereId($apartment->id)->whereToken($apartment->token)->first()) {
 
-        $apartment->fill($input)->save();
+            $input = $request->except(['file']);
 
-        $apartment->featuredImage($request);
+            $apartment->fill($input)->save();
 
+            $apartment->featuredImage($request);
 
-        return response()->json([
-            'message' => 'Updated',
-        ],200);
+            return response()->json([
+                'message' => 'Updated',
+            ], 200);
+
+        } else {
+            return response()->json([
+                'message' => 'Not Found',
+            ], 404);
+        }
     }
 
 
-
-    public function destroy(Apartment $apartment)
+    public function destroy($id, $token)
     {
-        $apartment->delete();
-        return 'deleted';
+        if ($apartment = Apartment::whereId($id)->whereToken($token)->first()) {
+            $apartment->delete();
+            return response()->json([
+                'message' => 'Apartment Deleted',
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Not Found',
+            ], 404);
+        }
+
     }
 
 }
