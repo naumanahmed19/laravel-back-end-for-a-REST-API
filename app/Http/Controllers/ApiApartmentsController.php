@@ -46,8 +46,8 @@ class ApiApartmentsController extends Controller
 
         $apartment->featuredImage($request);
 
-        Notification::route('mail', $apartment->email)
-            ->notify(new ApartmentPosted($apartment));
+//        Notification::route('mail', $apartment->email)
+//            ->notify(new ApartmentPosted($apartment));
 
         return response()->json([
             'message' => 'Item Posted',
