@@ -12,7 +12,8 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        "http://xvelopers.com/animus/",
-        "http://xvelopers.com/"
+        "http://xvelopers.com",
+        "http://xvelopers.com/animus/apartments/create"
+
     ];
 }
