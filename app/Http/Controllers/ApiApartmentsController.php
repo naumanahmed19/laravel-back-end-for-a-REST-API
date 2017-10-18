@@ -6,10 +6,14 @@ use App\Http\Requests\CreateapartmentRequest;
 use App\Notifications\ApartmentPosted;
 use Illuminate\Support\Facades\Notification;
 use App\Apartment;
+use Psy\Util\Json;
 
 class ApiApartmentsController extends Controller
 {
 
+    /**
+     * @return mixed
+     */
     public function index()
     {
         $apartments = Apartment::latest()->paginate(6);
@@ -22,6 +26,10 @@ class ApiApartmentsController extends Controller
         return $apartments;
     }
 
+    /**
+     * @param Apartment $apartment
+     * @return Apartment
+     */
     public function show(Apartment $apartment)
     {
         $apartment = Apartment::whereId($apartment->id)->first();
@@ -32,6 +40,10 @@ class ApiApartmentsController extends Controller
         return $apartment;
     }
 
+    /**
+     * @param CreateapartmentRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(CreateapartmentRequest $request)
     {
 
@@ -52,7 +64,11 @@ class ApiApartmentsController extends Controller
         ], 200);
     }
 
-
+    /**
+     * @param $id
+     * @param $token
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function edit($id, $token)
     {
         if ($apartment = Apartment::whereId($id)->whereToken($token)->first()) {
@@ -67,6 +83,13 @@ class ApiApartmentsController extends Controller
         ], 404);
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  Apartment $apartment
+     * @param  CreateapartmentRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(Apartment $apartment, CreateapartmentRequest $request)
     {
         if ($apartment = Apartment::whereId($apartment->id)->whereToken($apartment->token)->first()) {
@@ -88,7 +111,13 @@ class ApiApartmentsController extends Controller
         }
     }
 
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @param  string $token
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy($id, $token)
     {
         if ($apartment = Apartment::whereId($id)->whereToken($token)->first()) {
@@ -101,6 +130,5 @@ class ApiApartmentsController extends Controller
                 'message' => 'Not Found',
             ], 404);
         }
-
     }
 }
