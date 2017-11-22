@@ -25,7 +25,6 @@ class ApiApartmentsController extends Controller
         });
         return $apartments;
     }
-
     /**
      * @param Apartment $apartment
      * @return Apartment
