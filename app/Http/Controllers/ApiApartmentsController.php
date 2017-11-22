@@ -129,7 +129,6 @@ class ApiApartmentsController extends Controller
             ], 404);
         }
     }
-
     public function test1()
     {
         return '{
