@@ -129,4 +129,19 @@ class ApiApartmentsController extends Controller
             ], 404);
         }
     }
+
+    public function test1()
+    {
+        return '{
+              "total": 3,
+              "per_page": 8,
+              "current_page": 1,
+              "last_page": 1,
+              "next_page_url": null,
+              "prev_page_url": null,
+              "from": 1,
+              "to": 3
+            }';
+    }
 }
+
