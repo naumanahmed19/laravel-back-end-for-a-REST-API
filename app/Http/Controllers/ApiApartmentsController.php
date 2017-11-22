@@ -16,7 +16,7 @@ class ApiApartmentsController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::latest()->paginate(6);
+        $apartments = Apartment::get();
         $apartments->map(function ($apartment) {
             if ($image = $apartment->getFirstMediaUrl('featured', 'thumb')) {
                 $apartment['thumb'] = url($image);
@@ -60,7 +60,6 @@ class ApiApartmentsController extends Controller
 
         return response()->json([
             'message' => 'Item Posted',
-
         ], 200);
     }
 
