@@ -16,7 +16,7 @@ class ApiApartmentsController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::get();
+        $apartments = Apartment::latest()->paginate(12);
         $apartments->map(function ($apartment) {
             if ($image = $apartment->getFirstMediaUrl('featured', 'thumb')) {
                 $apartment['thumb'] = url($image);
