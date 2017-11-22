@@ -131,16 +131,14 @@ class ApiApartmentsController extends Controller
     }
     public function test1()
     {
-        return '{
-              "total": 3,
-              "per_page": 8,
-              "current_page": 1,
-              "last_page": 1,
-              "next_page_url": null,
-              "prev_page_url": null,
-              "from": 1,
-              "to": 3
-            }';
+        $apartments = Apartment::paginate(5);
+        $apartments->map(function ($apartment) {
+            if ($image = $apartment->getFirstMediaUrl('featured', 'thumb')) {
+                $apartment['thumb'] = url($image);
+                return $apartment;
+            }
+        });
+        return $apartments;
     }
 
     public function test2()
