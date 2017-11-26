@@ -47,14 +47,13 @@ class ApiApartmentsController extends Controller
     public function store(CreateapartmentRequest $request)
     {
 
-        dd($request->all());
         $input = $request->except(['file']);
 
         $input['token'] = str_random(60);
 
         $apartment = Apartment::create($input);
 
-        $apartment->featuredImage($request);
+        //     $apartment->featuredImage($request);
 //
 //        Notification::route('mail', $apartment->email)
 //            ->notify(new ApartmentPosted($apartment));
