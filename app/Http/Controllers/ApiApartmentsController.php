@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateapartmentRequest;
+use App\Http\Requests\Request;
 use App\Notifications\ApartmentPosted;
 use Illuminate\Support\Facades\Notification;
 use App\Apartment;
@@ -43,8 +44,9 @@ class ApiApartmentsController extends Controller
      * @param CreateapartmentRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(CreateapartmentRequest $request)
+    public function store(Request $request)
     {
+        dd($request->all());
 
         $input = $request->except(['file']);
 
