@@ -24,13 +24,13 @@ class CreateapartmentRequest extends Request
         return [
             'title' => 'required',
             'content' => 'required',
-            'town' => 'required',
-            'street' => 'required',
-            'city' => 'required|not_in:null',
-            'country' => 'required|not_in:null',
-            'moveInDate' => 'required',
-            'email' => 'required|email',
-            'postalCode' => 'required|integer',
+//            'town' => 'required',
+//            'street' => 'required',
+//            'city' => 'required|not_in:null',
+//            'country' => 'required|not_in:null',
+//            'moveInDate' => 'required',
+//            'email' => 'required|email',
+//            'postalCode' => 'required|integer',
 
         ];
     }
