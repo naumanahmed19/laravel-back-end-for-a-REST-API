@@ -46,8 +46,9 @@ class ApiApartmentsController extends Controller
      */
     public function store(CreateapartmentRequest $request)
     {
-        return $request->all();
-        $input = $request->except(['file', 'id']);
+
+        dd($request->all());
+        $input = $request->except(['file']);
 
         $input['token'] = str_random(60);
 
