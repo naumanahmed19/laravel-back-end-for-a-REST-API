@@ -23,7 +23,7 @@ class CreateapartmentRequest extends Request
     {
         return [
             'title' => 'required',
-            'content' => 'required',
+            // 'content' => 'required',
 //            'town' => 'required',
 //            'street' => 'required',
 //            'city' => 'required|not_in:null',
