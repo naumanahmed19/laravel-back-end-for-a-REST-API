@@ -44,7 +44,7 @@ class ApiApartmentsController extends Controller
      * @param CreateapartmentRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(CreateapartmentRequest $request)
+    public function store(Request $request)
     {
         dd($request->all());
 
