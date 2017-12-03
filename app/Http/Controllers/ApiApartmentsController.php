@@ -46,6 +46,8 @@ class ApiApartmentsController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd('soem es');
         dd($request->all());
 
         $input = $request->except(['file', 'thumb']);
