@@ -44,11 +44,10 @@ class ApiApartmentsController extends Controller
      * @param CreateapartmentRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(CreateapartmentRequest $request)
     {
 
-        dd('soem es');
-        dd($request->all());
+        return $request;
 
         $input = $request->except(['file', 'thumb']);
 
