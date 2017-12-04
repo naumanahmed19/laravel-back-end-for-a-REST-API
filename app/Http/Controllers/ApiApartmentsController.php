@@ -47,7 +47,7 @@ class ApiApartmentsController extends Controller
     public function store(CreateapartmentRequest $request)
     {
 
-        return $request;
+        return dd($request->all());
 
         $input = $request->except(['file', 'thumb']);
 
