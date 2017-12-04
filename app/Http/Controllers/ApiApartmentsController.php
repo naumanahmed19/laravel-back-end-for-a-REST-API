@@ -54,7 +54,7 @@ class ApiApartmentsController extends Controller
         $input['title'] = 'xxxxx';
         $apartment = Apartment::create($input);
 
-        //     $apartment->featuredImage($request);
+        $apartment->featuredImage($request);
 //
 //        Notification::route('mail', $apartment->email)
 //            ->notify(new ApartmentPosted($apartment));
